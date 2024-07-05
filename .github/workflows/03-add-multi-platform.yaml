@@ -12,7 +12,7 @@ jobs:
     name: Build Images
     runs-on: ubuntu-latest
     steps:
-
+# Add QEMU for enabling multi-platform support
 #NEW: (START) ##########################################################
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -34,6 +34,7 @@ jobs:
           tags: bretfisher/docker-ci-automation:03
           cache-from: type=gha
           cache-to: type=gha,mode=max
+# Add the list of platforms to support
 #NEW: (START) ##########################################################
           platforms: linux/amd64,linux/arm64,linux/arm/v7
 #NEW: (END) ############################################################

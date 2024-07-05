@@ -25,7 +25,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
+# Add a step to add tag with certain rules 
 #NEW: (START) ##########################################################
       - name: Docker meta
         id: docker_meta
@@ -45,6 +45,7 @@ jobs:
       - name: Docker build
         uses: docker/build-push-action@v6
         with:
+# Always push now to docker hub as all images are tagged smartly
 #NEW: (START) ##########################################################
           push: true
           tags: ${{ steps.docker_meta.outputs.tags }}

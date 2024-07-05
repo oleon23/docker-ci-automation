@@ -25,7 +25,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
+# Do a build for testing and export to Docker and run the unit test command on it
 #NEW: (START) ##########################################################
       - name: Build and export to Docker
         uses: docker/build-push-action@v6

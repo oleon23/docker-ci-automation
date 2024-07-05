@@ -18,6 +18,7 @@ services:
       allhands22:
         condition: service_started
       postgres:
+      # use healthchecks to ensure postgres is ready before testing
         condition: service_healthy
     # run all your tests here against the allhands22 service
     command: curl --fail http://allhands22:80 || exit 1

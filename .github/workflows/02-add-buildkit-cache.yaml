@@ -12,7 +12,7 @@ jobs:
     name: Build Image
     runs-on: ubuntu-latest
     steps:
-
+#Add buildx to be able to use caching to speed up builds
 #NEW: (START) ##########################################################
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -29,6 +29,7 @@ jobs:
         with:
           push: ${{ github.event_name != 'pull_request' }}
           tags: bretfisher/docker-ci-automation:02
+#Add caching - using the github cache api
 #NEW: (START) ##########################################################
           cache-from: type=gha
           cache-to: type=gha,mode=max

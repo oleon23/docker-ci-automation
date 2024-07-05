@@ -45,6 +45,9 @@ jobs:
           # NOTE: GHA and other CIs can also run dependency containers on their own
           # GHA `services:` can do this if you're trying to avoid docker compose
       - name: Test healthcheck in Docker Compose
+        # this run exports the image to an environment variable to be used
+        # in the docker-compose for testing
+        # note we use the exit code from the test service "sut"
         run: |
           export TESTING_IMAGE="${{ github.run_id }}"
           docker compose -f docker-compose.test.yml up --exit-code-from sut

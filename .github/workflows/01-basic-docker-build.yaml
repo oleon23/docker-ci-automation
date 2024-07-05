@@ -23,5 +23,7 @@ jobs:
       - name: Docker build
         uses: docker/build-push-action@v6
         with:
+          #only push the build if it's not a pull request
+          #i.e. builds that are merged get pushed
           push: ${{ github.event_name != 'pull_request' }}
           tags: bretfisher/docker-ci-automation:latest,bretfisher/docker-ci-automation:01
